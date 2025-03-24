@@ -1,0 +1,22 @@
+[package]
+name = "SeireiKuniBevy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.15.3", features = ["dynamic_linking"] }
+
+[profile.dev]
+opt-level = 1  # Lower optimization for faster development builds
+lto = false
+incremental = true
+
+[profile.release]
+opt-level = 3  # Higher optimization for release builds
+lto = true
+incremental = true
+
+[profile.bench]
+opt-level = 3  # Higher optimization for benchmarking
+lto = true
+incremental = true
